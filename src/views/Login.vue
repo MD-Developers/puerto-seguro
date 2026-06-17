@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import http from '@/services/requests';
 import { useRouter } from 'vue-router';
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
 const router = useRouter();
 
@@ -21,10 +23,18 @@ function loginUser(){
             localStorage.setItem("user_id", response.data.user_id);
             router.push("/admin");
         }).catch((error) => {
-            if(error.response.data)
-                console.log(error.response.data.detail);
-            else
+            if (typeof error.response.data.detail === 'string') {
+                toast(error.response.data.detail, {
+                    "theme": "dark",
+                    "type": "error",
+                })
+            } else {
                 console.log(error);
+                toast('Ha ocurrido un error, contacte soporte!!', {
+                    "theme": "dark",
+                    "type": "error",
+                })
+            }
         })
 }
 

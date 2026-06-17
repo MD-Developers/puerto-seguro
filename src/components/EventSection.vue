@@ -15,7 +15,7 @@ function handleClose() {
 }
 
 function getEvents() {
-    http.get('/events')
+    http.get('/events/')
         .then((response) => {
             eventos.value = response.data.map((evento) => {
                 return {
