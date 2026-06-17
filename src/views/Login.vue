@@ -21,7 +21,10 @@ function loginUser(){
             localStorage.setItem("user_id", response.data.user_id);
             router.push("/admin");
         }).catch((error) => {
-            console.log(error.response.data.detail);
+            if(error.response.data)
+                console.log(error.response.data.detail);
+            else
+                console.log(error);
         })
 }
 

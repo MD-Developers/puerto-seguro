@@ -47,6 +47,7 @@ class Request {
       return await axios.post(ruta, parametros, {
         headers: {
           "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*",
         },
       });
     } catch (error) {
