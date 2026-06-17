@@ -25,7 +25,17 @@ function getEvents() {
                 }
             });
         }).catch((error) => {
-            console.log(error.response.data.detail);
+            if (typeof error.response.data.detail === 'string') {
+                toast(error.response.data.detail, {
+                    "theme": "dark",
+                    "type": "error",
+                })
+            } else {
+                toast('Ha ocurrido un error, contacte soporte!!', {
+                    "theme": "dark",
+                    "type": "error",
+                })
+            }
         })
 }
 
