@@ -34,7 +34,7 @@ defineProps({
                 class="absolute inset-0 bg-linear-to-br opacity-90 group-hover:scale-110 transition-transform duration-500" :class="colors">
             </div>
             <div class="absolute inset-0 flex items-center justify-center">
-                <span class="material-symbols-outlined text-5xl! text-white/50">{{ icon }}</span>
+                <span class="material-symbols-outlined text-5xl!">{{ icon }}</span>
             </div>
         </div>
         <div class="p-6">

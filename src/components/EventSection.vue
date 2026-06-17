@@ -79,6 +79,9 @@ const filterList = computed(() => {
                 class="bg-gray-100 dark:bg-gray-800 text-deep-blue dark:text-white px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all cursor-pointer">Ver
                 calendario completo</button>
         </div>
+        <div class="w-full flex justify-center items-center text-deep-blue dark:text-white uppercase bg-white/30 dark:bg-white/5 pt-20 pb-20 rounded-2xl shadow-xl" v-if="filterList.length == 0">
+            <h2>Estamos preparando los próximos grandes momentos. ¡Vuelve pronto!</h2>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <mid-card v-for="(event, index) in filterList" :key="event.title" :event="event.title" :icon="getEmoji(event.icon)"
                 :location="event.location" :tag="event.tag" :date="event.start.toLocaleString('es-Es', {
