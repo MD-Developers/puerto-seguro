@@ -25,7 +25,7 @@ function getEvents() {
                 }
             });
         }).catch((error) => {
-            if (typeof error.response.data.detail === 'string') {
+            if (typeof error === 'object') {
                 toast(error.response.data.detail, {
                     "theme": "dark",
                     "type": "error",
