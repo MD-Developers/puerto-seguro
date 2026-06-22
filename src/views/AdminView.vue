@@ -215,25 +215,27 @@ onMounted(() => {
 
 <template>
     <div class="admin-view">
-        <div class="calendario w-150 md:w-200">
-            <div class="relative">
-                <div class="bg-gray-500 absolute top-0 left-0 inset-0" v-if="false"></div>
-                <vue-cal v-model:events="eventos"
-                    :editable-events="{ drag: false, resize: false, delete: false, create: true }"
-                    @event-create="createEvent" view="days"
-                    :views="{ day: '', days: { cols: 5, rows: 1 }, month: '', year: '', years: '' }" locale="es"
-                    :time-from="7 * 60" :time-to="18 * 60" dark sm class="text-center">
-                    <template #event="{ event }">
-                        <div class="vuecal__event-details">
-                            <div class="vuecal__event-title">{{ event.title }}</div>
-                            <div class="vuecal__event-time"><!----><span class="vuecal__event-start">{{
-                                event.start.toLocaleTimeString().split(" ")[0] }}</span><span
-                                    class="vuecal__event-end">&nbsp;-&nbsp;
-                                    {{ event.end.toLocaleTimeString().split(" ")[0] }}<!----></span></div>
-                        </div>
-                        <div class="vuecal__event-delete" @click="confirmDelete(event)">Delete</div>
-                    </template>
-                </vue-cal>
+        <div class="w-screen h-screen flex justify-center items-center overflow-scroll">
+            <div class="calendario w-150 md:w-200">
+                <div class="relative">
+                    <div class="bg-gray-500 absolute top-0 left-0 inset-0" v-if="false"></div>
+                    <vue-cal v-model:events="eventos"
+                        :editable-events="{ drag: false, resize: false, delete: false, create: true }"
+                        @event-create="createEvent" view="days"
+                        :views="{ day: '', days: { cols: 5, rows: 1 }, month: '', year: '', years: '' }" locale="es"
+                        :time-from="7 * 60" :time-to="18 * 60" dark sm class="text-center">
+                        <template #event="{ event }">
+                            <div class="vuecal__event-details">
+                                <div class="vuecal__event-title">{{ event.title }}</div>
+                                <div class="vuecal__event-time"><!----><span class="vuecal__event-start">{{
+                                    event.start.toLocaleTimeString().split(" ")[0] }}</span><span
+                                        class="vuecal__event-end">&nbsp;-&nbsp;
+                                        {{ event.end.toLocaleTimeString().split(" ")[0] }}<!----></span></div>
+                            </div>
+                            <div class="vuecal__event-delete" @click="confirmDelete(event)">Delete</div>
+                        </template>
+                    </vue-cal>
+                </div>
             </div>
         </div>
     </div>
@@ -299,6 +301,7 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 
 .calendario {
