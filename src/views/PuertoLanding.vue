@@ -7,6 +7,7 @@ import DonationSection from '../components/DonationSection.vue';
 import EventSection from '../components/EventSection.vue';
 import FooterSection from '../components/FooterSection.vue';
 import Menu from '../components/Menu.vue';
+import WordSection from '@/components/WordSection.vue';
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import Menu from '../components/Menu.vue';
     <main>
         <Hero />
         <card-section />
+        <word-section/>
         <mission-section />
         <donation-section />
         <event-section />
