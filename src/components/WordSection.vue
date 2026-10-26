@@ -60,7 +60,4 @@ function getImg() {
   display: flex;
   justify-content: center;
 }
-.telegram-embed, iframe {
-  color-scheme: normal !important;
-}
 </style>
